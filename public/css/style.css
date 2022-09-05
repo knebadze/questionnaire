@@ -1,0 +1,9 @@
+@font-face { font-family:nino; src:url(../fonts/nino/nino.ttf); }
+
+.color {
+	background-color: yellow !important;
+}
+
+h5 {
+	font-family: nino;
+}
