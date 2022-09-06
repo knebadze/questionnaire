@@ -104,7 +104,7 @@
                     <label for="country" class="form-label">კითხვარის კატეგორია</label>
                     <select class="form-select" name="category_id" id="country" required>
                       <option value="">აირჩიე...</option>
-                     @foreach ($categoreis as $category)
+                     @foreach ($categories as $category)
                      <option value="{{$category->id}}">{{$category->name}}</option>
                      @endforeach
 
