@@ -12,7 +12,7 @@
                     <a href="" class="logo">
                         <img src="{{asset('assets/img/logos/geostat.jpeg')}}" alt="logo">
                     </a>
-                    <h3>ავტორიზაცია</h3>
+                    <h3>ავტორიზაცია bla bla</h3>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group position-relative clearfix">
