@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Interviewer extends Model
 {
     use HasFactory;
+    public function region(){
+        return $this->hasOne('App\Models\region');
+    }
 }
