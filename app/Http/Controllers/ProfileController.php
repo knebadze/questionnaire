@@ -23,10 +23,10 @@ class ProfileController extends Controller
     public function interviewerProfile()
     {
         $interviewers = Interviewer::where('user_id', Auth::id())->get();
-        $categores = Category::all();
+        $categories = Category::all();
         $regions = Region::all();
         // dd($interviewers);
-        return view('profile', compact('categores','regions','interviewers'));
+        return view('profile', compact('categories','regions','interviewers'));
     }
     public function addInterviewerProfile(Request $request)
     {
