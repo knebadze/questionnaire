@@ -51,7 +51,7 @@
               @if ($interviewer->region_id)
               <li class="list-group-item d-flex justify-content-between lh-sm">
                 <div>
-                  <h6 class="my-0">ნომერი:</h6>
+                  <h6 class="my-0">რეგიონი:</h6>
                   <small class="text-muted">{{$interviewer->region->name}}</small>
                 </div>
               </li>

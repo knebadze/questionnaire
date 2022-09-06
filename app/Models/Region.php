@@ -14,4 +14,7 @@ class Region extends Model
     public function user(){
         return $this->hasMany('App\Models\user');
     }
+    public function interviewer(){
+        return $this->hasOne('App\Models\interviewer');
+    }
 }
