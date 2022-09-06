@@ -64,11 +64,11 @@
 		<div class="col-md-12">
       {{-- თუ ორგანიზაციაზე ინფორმაცია უკვე არის ბაზაში --}}
          @if (!(empty($organizations)))
-         @foreach ($organizations as $organization)
+         {{-- @foreach ($organizations as $organization) --}}
          <form class="form-group" method="POST" action="{{ url('questionnaire/organization_update/'.$organization->id) }}" enctype="multipart/form-data">
-          @csrf        
+          @csrf
    <div class="row g-2" >
-       
+
          <div class="col-lg-6 ">
           <div class="form-floating">
            <input type="text" name="identification_code" class="form-control" id="" value="{{$organization->identification_code}}" placeholder="საიდენტიფიკაციო კოდი">
@@ -99,7 +99,7 @@
            </div>
        </div>
        <div class="row g-2 mt-3" >
-       
+
           <div class="col-lg-6 ">
            <div class="form-floating">
             <input type="text" name="region" class="form-control" id="" value="{{$organization->region->name}}" placeholder=" რეგიონი">
@@ -115,7 +115,7 @@
            </div>
        </div>
        <div class="row g-2 mt-3" >
-       
+
           <div class="col-lg-6 ">
               <label for="">საკუთრების ფორმა</label>
             <input type="file" name="ownership" class="form-control" id="" placeholder="საკუთრების ფორმა">
@@ -133,7 +133,7 @@
            </div>
        </div>
        <div class="row g-2 mt-3" >
-       
+
           <div class="col-lg-6 ">
            <div class="form-floating">
             <input type="text" name="type_of_economic" class="form-control" id="" value="{{$organization->type_of_economic}}" placeholder="ეკონომიკური საქმიანობის ძირითადი სახე">
@@ -149,7 +149,7 @@
            </div>
        </div>
        <div class="row g-2 mt-3" >
-       
+
           <div class="col-lg-6 ">
            <div class="form-floating">
             <input type="text" name="number" class="form-control" id="" value="{{$organization->number}}" placeholder="ტელეფონი">
@@ -161,9 +161,9 @@
         <button type="submit" class="btn btn-primary ">განახლება</button>
      </div>
     </form>
-       @endforeach
-   
-  
+       {{-- @endforeach --}}
+
+
    @endif
    {{-- თუ ორგანიზაციის შესახებ ინფორმაცია ცარიელია --}}
    @if(empty($organization))
@@ -171,7 +171,7 @@
     @csrf
 
 <div class="row g-2" >
- 
+
    <div class="col-lg-6 ">
     <div class="form-floating">
      <input type="text" name="identification_code" class="form-control" id="" value="" placeholder="საიდენტიფიკაციო კოდი">
@@ -187,7 +187,7 @@
     </div>
 </div>
 <div class="row g-2 mt-3" >
- 
+
     <div class="col-lg-6 ">
      <div class="form-floating">
       <input type="text" name="address_l" class="form-control" id="" placeholder="საიდენტიფიკაციო კოდი">
@@ -203,7 +203,7 @@
      </div>
  </div>
  <div class="row g-2 mt-3" >
- 
+
     <div class="col-lg-6 ">
      <select name="region_id" class="form-control" style="height: 57px">
       <option value="">აირჩიე რეგიონი</option>
@@ -221,7 +221,7 @@
      </div>
  </div>
  <div class="row g-2 mt-3" >
- 
+
     <div class="col-lg-6 ">
         <label for="">საკუთრების ფორმა</label>
       <input type="file" name="ownership" class="form-control" id="" placeholder="საკუთრების ფორმა">
@@ -233,7 +233,7 @@
      </div>
  </div>
  <div class="row g-2 mt-3" >
- 
+
     <div class="col-lg-6 ">
      <div class="form-floating">
       <input type="text" name="type_of_economic" class="form-control" id="" placeholder="ეკონომიკური საქმიანობის ძირითადი სახე">
@@ -249,7 +249,7 @@
      </div>
  </div>
  <div class="row g-2 mt-3" >
- 
+
     <div class="col-lg-6 ">
      <div class="form-floating">
       <input type="text" name="number" class="form-control" id="" placeholder="ტელეფონი">
@@ -263,7 +263,7 @@
 </div>
 </form>
          @endif
-        
+
         </div>
         <div class="col-md-12 ">
             <hr>
@@ -279,12 +279,12 @@
          <hr>
          <div class="col-lg-3 mb-4 ">
           <div class="d-inline-block;">
-              
+
              </div>
       </div>
       <form class="form-group" method="POST" action="{{ route('questionnaire') }}" enctype="multipart/form-data">
         @csrf
-      
+
          <table class="table table-bordered border-black question_table">
             <thead>
                 <tr>
@@ -340,7 +340,7 @@
     <div> <h5 class="mb-4">უკვე შევსებული ცხრილები:</h5></div>
     @foreach ($questionnaires as $questionnaire)
     <div>
-  
+
         <table class="table table-striped">
           <thead>
             <tr>
@@ -370,32 +370,32 @@
     </div>
   </div>
   @else
-  
+
    <div class="row">
      <h4></h4>
     <div> <h5 class="mb-4">უკვე შევსებული ცხრილები:</h5></div>
     <p>გთხოვთ შეავსოთ ცხრილი</p>
    </div>
    @endif
-   
+
 </div>
 
 @else
    {{-- END ORGANIZATION ROLE --}}
 
-   
-   {{-- START ADMIN ROLE  --}} 
+
+   {{-- START ADMIN ROLE  --}}
 
 <div class="container">
 	<hr>
 	<div class="row">
 
 		<div class="col-md-12">
-         
+
          <form class="form-group" method="POST" action="{{ url('questionnaire/organization_update/'.$organization->id) }}" enctype="multipart/form-data">
-          @csrf        
+          @csrf
    <div class="row g-2" >
-       
+
          <div class="col-lg-6 ">
           <div class="form-floating">
            <input type="text" name="identification_code" class="form-control" id="" value="{{$organization->identification_code}}" placeholder="საიდენტიფიკაციო კოდი">
@@ -411,7 +411,7 @@
           </div>
       </div>
       <div class="row g-2 mt-3" >
-       
+
           <div class="col-lg-6 ">
            <div class="form-floating">
             <input type="text" name="address_l" class="form-control" id="" value="{{$organization->address_l}}" placeholder="საიდენტიფიკაციო კოდი">
@@ -427,7 +427,7 @@
            </div>
        </div>
        <div class="row g-2 mt-3" >
-       
+
           <div class="col-lg-6 ">
            <div class="form-floating">
             <input type="text" name="region" class="form-control" id="" value="{{$organization->region}}" placeholder=" რეგიონი">
@@ -443,7 +443,7 @@
            </div>
        </div>
        <div class="row g-2 mt-3" >
-       
+
           <div class="col-lg-6 ">
               <label for="">საკუთრების ფორმა</label>
             <input type="file" name="ownership" class="form-control" id="" placeholder="საკუთრების ფორმა">
@@ -461,7 +461,7 @@
            </div>
        </div>
        <div class="row g-2 mt-3" >
-       
+
           <div class="col-lg-6 ">
            <div class="form-floating">
             <input type="text" name="type_of_economic" class="form-control" id="" value="{{$organization->type_of_economic}}" placeholder="ეკონომიკური საქმიანობის ძირითადი სახე">
@@ -477,7 +477,7 @@
            </div>
        </div>
        <div class="row g-2 mt-3" >
-       
+
           <div class="col-lg-6 ">
            <div class="form-floating">
             <input type="text" name="number" class="form-control" id="" value="{{$organization->number}}" placeholder="ტელეფონი">
@@ -505,14 +505,14 @@
          <hr>
          <div class="col-lg-3 mb-4 ">
           <div class="d-inline-block;">
-              
+
              </div>
       </div>
       @foreach ($adminQuestionnaires->where('organization_id', $organization->id) as $questionnaire)
-   
+
       <form class="form-group" method="POST" action="{{ route('questionnaire') }}" enctype="multipart/form-data">
         @csrf
-      
+
         <table class="table table-bordered border-black question_table">
           <thead>
               <tr>
@@ -522,13 +522,13 @@
                 </tr>
           </thead>
           <tbody>
-              <tr>  
+              <tr>
                 @if ($questionnaire->id <3)
                 <th scope="row">{{$questionnaire->id}}</th>
                 @else
                 <th scope="row">{{($questionnaire->id) - 2}}</th>
                 @endif
-                  
+
                   <td ><input type="text" name="cpa_kode" value="{{$questionnaire->cpa_kode}}" placeholder="მაგ:"></td>
                   <td colspan="5"><input type="text" value="{{$questionnaire->product_name}}"  name="product_name" placeholder="მაგ:პური"></td>
                 </tr>
@@ -544,7 +544,7 @@
                   <td>მიმდინარე თვე</td>
                   <td></td>
                 </tr>
-                
+
                 @foreach ($questionnaireBody->where('questionnaire_id', $questionnaire->id) as $body)
                 <tr >
                   <td style="height: 50px" colspan="2" scope="row"><input type="text" name="product_type[]" value="{{$body->product_type}}"  placeholder="მაგ:პური" multiple=""></td>
@@ -555,8 +555,8 @@
                   <td><input type="text" name="comment[]" value="{{$body->comment}}"  placeholder="მაგ:" multiple=""></td>
                 </tr>
                 @endforeach
-              
-               
+
+
           </tbody>
         </table>
          </form>
@@ -568,7 +568,7 @@
     </div>
    </div>
 </div>
-@endif 
+@endif
  {{--   --}}
 </div>
 @endsection

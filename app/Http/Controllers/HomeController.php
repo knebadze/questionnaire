@@ -37,8 +37,8 @@ class HomeController extends Controller
         $questionnaireListAll = QuestionnaireList::orderby('id','DESC')->get();
         $organiozationListInterviewer = Organization::orderby('id', 'DESC')->where('region_id', auth()->user()->region_id)->get();
         $interviewerCategory = Interviewer::where('user_id', Auth::id())->first();
-       
-        
+
+
         // dd($questionnaireList);
         if ($role == 1) {
             $users = User::all();
@@ -50,13 +50,14 @@ class HomeController extends Controller
             return view('home', compact('organization','questionnaireListAll', 'questionnaires'));
         }
         elseif($role == 3)
-        $questionnaireList = QuestionnaireList::orderby('id','DESC')->where('category_id', $interviewerCategory->category_id)->get();
         {
+            $questionnaireList = QuestionnaireList::orderby('id','DESC')->where('category_id', $interviewerCategory->category_id)->get();
+            // dd($questionnaireList);
             return view('interviewer/interviewerHome', compact('organiozationListInterviewer','questionnaires','questionnaireList',
         'interviewerCategory'));
         }
-        
-       
+
+
     }
 
 }

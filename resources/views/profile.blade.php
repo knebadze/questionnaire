@@ -56,6 +56,14 @@
                 </div>
               </li>
               @endif
+              @if ($interviewer->category_id)
+              <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
+                  <h6 class="my-0">კითხვარების კატეგორია:</h6>
+                  <small class="text-muted">{{$interviewer->category->name}}</small>
+                </div>
+              </li>
+              @endif
               @endforeach
 
 
