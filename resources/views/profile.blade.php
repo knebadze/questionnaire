@@ -8,7 +8,7 @@
           <h2>შეავსეთ თქვენი მონაცემბეი</h2>
           <p class="lead">შევსება სავალდებულოა გთხოვთ შეავსოთ სრულად ინფორმაცია</p>
         </div>
-    
+
         <div class="row g-5">
           <div class="col-md-5 col-lg-4 order-md-last">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -49,8 +49,8 @@
               </li>
               @endif
               @endforeach
-          
-           
+
+
               {{-- <li class="list-group-item d-flex justify-content-between bg-light">
                 <div class="text-success">
                   <h6 class="my-0">Promo code</h6>
@@ -63,7 +63,7 @@
                 <strong>$20</strong>
               </li> --}}
             </ul>
-    
+
             {{-- <form class="card p-2">
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Promo code">
@@ -74,7 +74,7 @@
           <div class="col-md-7 col-lg-8">
             <h4 class="mb-3"></h4>
             <form class="form-group" method="POST" action="{{ route('interviewer.profile') }}" enctype="multipart/form-data">
-                @csrf  
+                @csrf
                 <p>   @if(Session::has('message'))
                     <div class="alert alert-success">
                         {{ Session::get('message') }}
@@ -91,7 +91,7 @@
                       @foreach ($regions as $region)
                       <option value="{{$region->id}}">{{$region->name}}</option>
                       @endforeach
-                      
+
                     </select>
                   </div>
 
@@ -104,10 +104,10 @@
                     <label for="country" class="form-label">კითხვარის კატეგორია</label>
                     <select class="form-select" name="category_id" id="country" required>
                       <option value="">აირჩიე...</option>
-                     @foreach ($categores as $category)
+                     @foreach ($categoreis as $category)
                      <option value="{{$category->id}}">{{$category->name}}</option>
                      @endforeach
-                      
+
                     </select>
                   </div>
 
@@ -115,9 +115,9 @@
                     <label for="firstName" class="form-label">ტელეფონის ნომერი</label>
                     <input type="text" class="form-control" name="number" placeholder="" value="" required>
                   </div>
-    
+
               <hr class="my-4">
-    
+
               <div class="my-4">
                 <button type="submit" class="btn btn-primary ">შენახვა</button>
              </div>
